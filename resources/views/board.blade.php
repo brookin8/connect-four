@@ -7,7 +7,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="/style.css">
 
 	<title>Laravel Connect Four</title>
 </head>
@@ -17,13 +17,41 @@
 	<h1 class="mt-5">Laravel Connect Four</h1>
 
 	<div class="row justify-content-center mt-5">
-			<div class="drop"><button class="btn btn-light">Drop!</button></div>
-			<div class="drop"><button class="btn btn-light">Drop!</button></div>
-			<div class="drop"><button class="btn btn-light">Drop!</button></div>
-			<div class="drop"><button class="btn btn-light">Drop!</button></div>
-			<div class="drop"><button class="btn btn-light">Drop!</button></div>
-			<div class="drop"><button class="btn btn-light">Drop!</button></div>
-			<div class="drop"><button class="btn btn-light">Drop!</button></div>
+			<div class="drop">
+				<form method="get" action="/game/{{ $game_id }}/drop/0">
+					<button class="btn btn-light">&#x2B07;</button>
+				</form>
+			</div>
+			<div class="drop">
+				<form method="get" action="/game/{{ $game_id }}/drop/1">
+					<button class="btn btn-light">&#x2B07;</button>
+				</form>
+			</div>
+			<div class="drop">
+				<form method="get" action="/game/{{ $game_id }}/drop/2">
+					<button class="btn btn-light">&#x2B07;</button>
+				</form>
+			</div>
+			<div class="drop">
+				<form method="get" action="/game/{{ $game_id }}/drop/3">
+					<button class="btn btn-light">&#x2B07;</button>
+				</form>
+			</div>
+			<div class="drop">
+				<form method="get" action="/game/{{ $game_id }}/drop/4">
+					<button class="btn btn-light">&#x2B07;</button>
+				</form>
+			</div>
+			<div class="drop">
+				<form method="get" action="/game/{{ $game_id }}/drop/5">
+					<button class="btn btn-light">&#x2B07;</button>
+				</form>
+			</div>
+			<div class="drop">
+				<form method="get" action="/game/{{ $game_id }}/drop/6">
+					<button class="btn btn-light">&#x2B07;</button>
+				</form>
+			</div>
 	</div>
 
 	<div class="mt-2 mb-3 board">
@@ -34,7 +62,7 @@
 			
 				@for ($j=0; $j< $columns; $j++)
 
-					<div class="spot {{ $board[$i][$j]['color'] }}"> {{ $i }}, {{ $j }}</div>
+					<div class="spot {{ $board[$i][$j] }}"> {{ $i }}, {{ $j }}</div>
 
 				@endfor
 
@@ -47,8 +75,14 @@
 		Current Player : {{ $currentPlayer }}
 	</div>
 
+	<div class="mb-4">
+		Turn : {{ $turn }}
+	</div>
+
 	<div class="mt-3 mb-3">
-		<button class="btn btn-light">Restart Game</button>
+		<form method="get" action="/restart">
+			<button class="btn btn-light">Restart Game</button>
+		</form>
 	</div>
 
 </body>

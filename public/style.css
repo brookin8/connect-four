@@ -5,11 +5,13 @@
 	border-radius: 50%;
 	background-color: #fff;
 	padding-top: 20px;
-	color:#fff;
+	/*color:#fff;*/
 }
 
 .drop {
 	width: 75px;
+	font-weight:bold;
+	color:#787878;
 }
 
 .board {
@@ -22,10 +24,10 @@
 	margin:0px;
 }
 
-.red {
+.Red {
 	background-color: #E53A40;
 }
 
-.blue {
+.Blue {
 	background-color: #30A9DE;
 }
