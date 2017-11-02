@@ -18,6 +18,7 @@
 	border: 5px solid #EFDC05;
 	display: inline-block;
 	background-color: #EFDC05;
+	border-radius:5px;
 }
 
 .row {
@@ -30,4 +31,12 @@
 
 .Blue {
 	background-color: #30A9DE;
+}
+
+.disabled {
+
+}
+
+.message {
+	width: 535px;
 }

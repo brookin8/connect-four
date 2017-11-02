@@ -16,41 +16,112 @@
 
 	<h1 class="mt-5">Laravel Connect Four</h1>
 
+	<div class="row justify-content-center">
+		<div class="message alert alert-success mt-5">
+			@if ($message !== '')
+				{{ $message }}
+			@else
+				Turn: {{ $turn }}
+			@endif
+		</div>
+	</div>
+
+
+
 	<div class="row justify-content-center mt-5">
 			<div class="drop">
-				<form method="get" action="/game/{{ $game_id }}/drop/0">
-					<button class="btn btn-light">&#x2B07;</button>
-				</form>
+
+				@if ($in_progress)
+				
+					<form method="get" action="/game/{{ $game_id }}/drop/0">
+						<button class="btn btn-light {{ $currentPlayer }}">&#x2B07;</button>
+					</form>
+
+				@else
+
+					<button class="btn btn-light disabled">&#x2B07;</button>
+
+				@endif
+
 			</div>
 			<div class="drop">
-				<form method="get" action="/game/{{ $game_id }}/drop/1">
-					<button class="btn btn-light">&#x2B07;</button>
-				</form>
+				@if ($in_progress)
+				
+					<form method="get" action="/game/{{ $game_id }}/drop/1">
+						<button class="btn btn-light {{ $currentPlayer }}">&#x2B07;</button>
+					</form>
+
+				@else
+
+					<button class="btn btn-light disabled">&#x2B07;</button>
+
+				@endif
+
 			</div>
 			<div class="drop">
-				<form method="get" action="/game/{{ $game_id }}/drop/2">
-					<button class="btn btn-light">&#x2B07;</button>
-				</form>
+				@if ($in_progress)
+
+					<form method="get" action="/game/{{ $game_id }}/drop/2">
+						<button class="btn btn-light {{ $currentPlayer }}">&#x2B07;</button>
+					</form>
+
+				@else
+
+					<button class="btn btn-light disabled">&#x2B07;</button>
+
+				@endif
 			</div>
 			<div class="drop">
-				<form method="get" action="/game/{{ $game_id }}/drop/3">
-					<button class="btn btn-light">&#x2B07;</button>
-				</form>
+				@if ($in_progress)
+
+					<form method="get" action="/game/{{ $game_id }}/drop/3">
+						<button class="btn btn-light {{ $currentPlayer }}">&#x2B07;</button>
+					</form>
+
+				@else
+
+					<button class="btn btn-light disabled">&#x2B07;</button>
+
+				@endif
 			</div>
 			<div class="drop">
-				<form method="get" action="/game/{{ $game_id }}/drop/4">
-					<button class="btn btn-light">&#x2B07;</button>
-				</form>
+				@if ($in_progress)
+
+					<form method="get" action="/game/{{ $game_id }}/drop/4">
+						<button class="btn btn-light {{ $currentPlayer }}">&#x2B07;</button>
+					</form>
+				@else
+
+					<button class="btn btn-light disabled">&#x2B07;</button>
+
+				@endif
+
 			</div>
 			<div class="drop">
-				<form method="get" action="/game/{{ $game_id }}/drop/5">
-					<button class="btn btn-light">&#x2B07;</button>
-				</form>
+				@if ($in_progress)
+
+					<form method="get" action="/game/{{ $game_id }}/drop/5">
+						<button class="btn btn-light {{ $currentPlayer }}">&#x2B07;</button>
+					</form>
+
+				@else
+
+					<button class="btn btn-light disabled">&#x2B07;</button>
+
+				@endif
 			</div>
 			<div class="drop">
-				<form method="get" action="/game/{{ $game_id }}/drop/6">
-					<button class="btn btn-light">&#x2B07;</button>
-				</form>
+				@if ($in_progress)
+
+					<form method="get" action="/game/{{ $game_id }}/drop/6">
+						<button class="btn btn-light {{ $currentPlayer }}">&#x2B07;</button>
+					</form>
+
+				@else
+
+					<button class="btn btn-light disabled">&#x2B07;</button>
+
+				@endif
 			</div>
 	</div>
 
@@ -62,7 +133,7 @@
 			
 				@for ($j=0; $j< $columns; $j++)
 
-					<div class="spot {{ $board[$i][$j] }}"> {{ $i }}, {{ $j }}</div>
+					<div class="spot {{ $board[$i][$j] }}"></div>
 
 				@endfor
 
@@ -71,17 +142,9 @@
 		@endfor
 	</div>
 
-	<div class="mt-4 mb-3">
-		Current Player : {{ $currentPlayer }}
-	</div>
-
-	<div class="mb-4">
-		Turn : {{ $turn }}
-	</div>
-
 	<div class="mt-3 mb-3">
 		<form method="get" action="/restart">
-			<button class="btn btn-light">Restart Game</button>
+			<button class="btn btn-light">New Game</button>
 		</form>
 	</div>
 
